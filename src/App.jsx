@@ -1,19 +1,22 @@
-import { useEffect, lazy, Suspense } from 'react';
-import { Toaster } from 'react-hot-toast';
+import LoginPage from 'pages/LoginPage';
+import MyLibraryPage from 'pages/MyLibraryPage';
+import ReadingPage from 'pages/ReadingPage';
+import RecommendedPage from 'pages/RecommendedPage';
+import RegisterPage from 'pages/RegisterPage';
 import { Route, Routes } from 'react-router-dom';
-import RestrictedRoute from 'components/RestrictedRoute/RestrictedRoute';
-import SharedLayout from 'components/SharedLayout/SharedLayout.jsx';
-import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
-
-const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
-const SignInPage = lazy(() => import('./pages/SignInPage/SignInPage'));
-const SignUpPage = lazy(() => import('./pages/SignUpPage/SignUpPage'));
-const TrackerPage = lazy(() => import('./pages/TrackerPage/TrackerPage'));
 
 function App() {
   return (
     <>
-      <h1>Hello</h1>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/recommended" element={<RecommendedPage />} />
+        <Route path="/library" element={<MyLibraryPage />} />
+        <Route path="/reading" element={<ReadingPage />} />
+
+        <Route path="*" element={<LoginPage />} />
+      </Routes>
     </>
   );
 }
