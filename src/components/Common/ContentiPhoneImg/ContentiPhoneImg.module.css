@@ -1,0 +1,14 @@
+.imgWrapper {
+  position: relative;
+  min-width: 320px;
+  max-width: 335px;
+  height: 351px;
+  border-radius: 30px;
+  background-color: var(--light-black);
+}
+
+.phoneImg {
+  position: absolute;
+  bottom: 0;
+  left: 40px;
+}

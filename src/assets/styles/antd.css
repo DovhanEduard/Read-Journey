@@ -1,0 +1,5 @@
+.ant-input-suffix {
+  .anticon.ant-input-password-icon {
+    color: var(--white);
+  }
+}

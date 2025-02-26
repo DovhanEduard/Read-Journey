@@ -1,7 +1,15 @@
-import React from 'react';
+import BackgroundPhoneImg from 'components/Common/ContentiPhoneImg/ContentiPhoneImg';
+import RegisterForm from 'components/RegisterPage/RegisterForm/RegisterForm';
 
 const RegisterPage = () => {
-  return <div>RegisterPage</div>;
+  return (
+    <section className="section">
+      <div className="container registerContainer">
+        <RegisterForm />
+        <BackgroundPhoneImg />
+      </div>
+    </section>
+  );
 };
 
 export default RegisterPage;
