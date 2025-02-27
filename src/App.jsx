@@ -1,4 +1,4 @@
-import LoginPage from 'pages/LoginPage';
+import LoginPage from 'pages/LoginPage/LoginPage';
 import MyLibraryPage from 'pages/MyLibraryPage';
 import ReadingPage from 'pages/ReadingPage';
 import RecommendedPage from 'pages/RecommendedPage';

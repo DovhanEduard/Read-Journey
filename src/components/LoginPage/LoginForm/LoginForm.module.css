@@ -1,0 +1,171 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  min-width: 320px;
+  max-width: 335px;
+  padding: 20px 20px 40px 20px;
+  background-color: var(--light-black);
+  margin-bottom: 10px;
+}
+
+.loginFormTitile {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+}
+
+.accentColor {
+  color: rgba(227, 227, 227, 0.5);
+}
+
+.input {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33333;
+  letter-spacing: -0.02em;
+  background-color: var(--dark-gray);
+  color: var(--white);
+
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 8px;
+
+  max-width: 100%;
+  height: 44px;
+}
+
+.input.passwordInput {
+  margin-bottom: 0;
+}
+
+.input::placeholder {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33333;
+  letter-spacing: -0.02em;
+  color: var(--light-gray);
+}
+
+.input {
+  input::placeholder {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33333;
+    letter-spacing: -0.02em;
+    color: var(--light-gray);
+  }
+}
+
+.error {
+  color: red;
+}
+
+.submitBtnWrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 72px;
+}
+
+.registerFormBtn {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: 0.02em;
+  color: var(--light-black);
+
+  border-radius: 30px;
+  padding: 12px 29px;
+  width: 138px;
+  height: 42px;
+  margin-right: 16px;
+
+  background-color: var(--white);
+}
+
+.registerFormBtn:hover,
+.registerFormBtn:focus {
+  color: var(--white);
+  border: 1px solid rgba(249, 249, 249, 0.2);
+  background-color: transparent;
+}
+
+.registerLink {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.16667;
+  letter-spacing: -0.02em;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: var(--light-gray);
+}
+
+/* ---------tablet---------- */
+
+@media only screen and (min-width: 768px) {
+  .form {
+    width: 704px;
+    max-width: none;
+    padding: 40px 0 214px 64px;
+    margin-bottom: 0;
+  }
+
+  .loginFormTitile {
+    font-size: 64px;
+    line-height: 0.9375;
+    letter-spacing: 0.02em;
+    margin-bottom: 40px;
+    width: 463px;
+  }
+
+  .input {
+    font-size: 14px;
+    line-height: 1.28571;
+
+    border-radius: 12px;
+    padding: 16px 14px;
+    margin-bottom: 14px;
+
+    max-width: 469px;
+    height: 50px;
+  }
+
+  .input {
+    input::placeholder {
+      font-size: 14px;
+      line-height: 1.28571;
+      letter-spacing: -0.02em;
+    }
+  }
+
+  .submitBtnWrapper {
+    margin-top: 146px;
+  }
+
+  .registerFormBtn {
+    font-size: 20px;
+    line-height: 1;
+
+    padding: 16px 54px;
+    width: 233px;
+    height: 52px;
+    margin-right: 22px;
+  }
+
+  .registerLink {
+    font-size: 14px;
+    line-height: 1.28571;
+  }
+}
+
+/* ---------desktop---------- */
+
+@media only screen and (min-width: 1440px) {
+  .form {
+    width: 600px;
+    max-width: none;
+    padding: 40px 0 40px 64px;
+  }
+}
