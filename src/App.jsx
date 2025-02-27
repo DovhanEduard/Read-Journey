@@ -2,7 +2,7 @@ import LoginPage from 'pages/LoginPage';
 import MyLibraryPage from 'pages/MyLibraryPage';
 import ReadingPage from 'pages/ReadingPage';
 import RecommendedPage from 'pages/RecommendedPage';
-import RegisterPage from 'pages/RegisterPage';
+import RegisterPage from 'pages/RegisterPage/RegisterPage';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {

@@ -12,3 +12,22 @@
   bottom: 0;
   left: 40px;
 }
+
+@media only screen and (min-width: 768px) {
+  .imgWrapper {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .imgWrapper {
+    display: block;
+    width: 600px;
+    height: 736px;
+    max-width: none;
+  }
+
+  .phoneImg {
+    left: 98px;
+  }
+}
