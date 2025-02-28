@@ -36,19 +36,7 @@ h1 {
 }
 
 .section {
-  margin: 20px 20px 0 20px;
-}
-
-@media only screen and (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-}
-
-@media only screen and (min-width: 1440px) {
-  .container {
-    max-width: 1440px;
-  }
+  margin: 0 20px 0 20px;
 }
 
 .loader {
@@ -68,4 +56,20 @@ h1 {
   padding: 0;
   overflow: hidden;
   clip-path: inset(50%);
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+
+  .section {
+    margin: 0 32px 0 32px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+  }
 }

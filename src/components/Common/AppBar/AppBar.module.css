@@ -12,6 +12,7 @@
 
   background-color: var(--light-black);
   border-radius: 15px;
+  margin-bottom: 10px;
 }
 
 .headerLogo {
@@ -53,6 +54,7 @@
     width: 704px;
     height: 74px;
     padding: 28px 16px;
+    margin-bottom: 16px;
   }
 
   .logoutBtn {
