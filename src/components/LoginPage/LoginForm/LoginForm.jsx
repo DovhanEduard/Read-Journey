@@ -34,7 +34,9 @@ const LoginForm = () => {
 
   return (
     <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
-      <Logo />
+      <div className={css.logoWrapper}>
+        <Logo />
+      </div>
       <h2 className={css.loginFormTitile}>
         Expand your mind, reading&nbsp;
         <span className={css.accentColor}>a book</span>

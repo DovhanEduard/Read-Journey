@@ -9,6 +9,10 @@
   margin-bottom: 10px;
 }
 
+.logoWrapper {
+  margin-bottom: 40px;
+}
+
 .registerFormTitile {
   font-weight: 700;
   font-size: 32px;
@@ -112,6 +116,10 @@
     margin-bottom: 0;
   }
 
+  .logoWrapper {
+    margin-bottom: 157px;
+  }
+
   .registerFormTitile {
     font-size: 64px;
     line-height: 0.9375;
@@ -167,5 +175,9 @@
     width: 600px;
     max-width: none;
     padding: 40px 0 40px 64px;
+  }
+
+  .logoWrapper {
+    margin-bottom: 107px;
   }
 }

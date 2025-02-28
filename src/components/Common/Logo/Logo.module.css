@@ -1,8 +1,8 @@
 .logoWrapper {
   display: flex;
   gap: 4px;
-  margin-bottom: 40px;
 }
+
 .logo {
   width: 47px;
   height: 17px;
@@ -20,17 +20,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .logoWrapper {
-    margin-bottom: 157px;
-  }
-
   .logoText {
     display: block;
-  }
-}
-
-@media only screen and (min-width: 1440px) {
-  .logoWrapper {
-    margin-bottom: 107px;
   }
 }

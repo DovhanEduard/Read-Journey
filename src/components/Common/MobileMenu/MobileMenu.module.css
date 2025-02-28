@@ -1,0 +1,88 @@
+.sidebar {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100%;
+  background-color: var(--dark-gray);
+
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.open {
+  transform: translateX(0);
+}
+
+.closeButton {
+  position: absolute;
+  top: 34px;
+  right: 40px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.nav {
+  margin-top: 280px;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+.navItem {
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.navLink {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.logoutButton {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: 0.02em;
+  color: var(--white);
+
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  padding: 10px 20px;
+  border: 1px solid var(--gray);
+  border-radius: 30px;
+  background-color: transparent;
+  transform: translate(-50%);
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Прозорий чорний фон */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 888; /* Менше ніж sidebar, але вище решти контенту */
+}
+
+.overlay.open {
+  opacity: 1;
+  visibility: visible;
+}

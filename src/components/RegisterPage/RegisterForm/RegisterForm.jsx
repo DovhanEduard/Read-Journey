@@ -40,7 +40,10 @@ const RegisterForm = () => {
 
   return (
     <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
-      <Logo />
+      <div className={css.logoWrapper}>
+        <Logo />
+      </div>
+
       <h2 className={css.registerFormTitile}>
         Expand your mind, reading&nbsp;
         <span className={css.accentColor}>a book</span>
