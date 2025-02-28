@@ -3,8 +3,21 @@
   justify-content: center;
   align-items: center;
 
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+
   width: 35px;
   height: 35px;
   border-radius: 100%;
   border: 1px solid var(--gray);
+}
+
+@media only screen and (min-width: 768px) {
+  .userWrapper {
+    line-height: 1.125;
+    width: 40px;
+    height: 40px;
+  }
 }

@@ -8,14 +8,33 @@
   height: 57px;
   padding: 20px;
   margin: 0 auto;
+  margin-top: 20px;
 
   background-color: var(--light-black);
   border-radius: 15px;
 }
 
+.headerLogo {
+  display: none;
+}
+
 .wrapper {
   display: flex;
-  gap: 10px;
+  gap: 16px;
+}
+
+.logoutBtn {
+  display: none;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.125;
+  letter-spacing: 0.02em;
+  color: var(--white);
+
+  padding: 12px 28px;
+  border: 1px solid var(--gray);
+  border-radius: 30px;
+  background-color: transparent;
 }
 
 .burgerMenuBtn {
@@ -26,4 +45,30 @@
   width: 28px;
   height: 28px;
   color: var(--white);
+}
+
+@media only screen and (min-width: 768px) {
+  .header {
+    max-width: none;
+    width: 704px;
+    height: 74px;
+    padding: 28px 16px;
+  }
+
+  .logoutBtn {
+    display: inline-block;
+  }
+
+  .burgerMenuBtn {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .header {
+    width: 1216px;
+  }
+  .headerLogo {
+    display: block;
+  }
 }

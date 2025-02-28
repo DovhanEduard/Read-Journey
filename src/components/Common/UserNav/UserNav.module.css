@@ -1,0 +1,28 @@
+.nav {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .nav {
+    display: block;
+  }
+
+  .navList {
+    display: flex;
+    gap: 32px;
+  }
+
+  .navItem {
+    padding: 10px 0;
+    cursor: pointer;
+  }
+
+  .navLink {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.125;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    text-decoration: none;
+  }
+}

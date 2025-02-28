@@ -1,6 +1,7 @@
+import clsx from 'clsx';
 import css from './Logo.module.css';
 
-const Logo = () => {
+const Logo = ({ additionalClassName }) => {
   return (
     <div className={css.logoWrapper}>
       <img
@@ -8,7 +9,7 @@ const Logo = () => {
         src="/img/logo-desk.png"
         alt="Logo Read Journey"
       />
-      <p className={css.logoText}>read journey</p>
+      <p className={clsx(css.logoText, additionalClassName)}>read journey</p>
     </div>
   );
 };
