@@ -42,3 +42,35 @@
   height: 16px;
   color: var(--white);
 }
+
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    min-width: none;
+    max-width: none;
+    width: 704px;
+    padding: 40px;
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 1.14286;
+    margin-bottom: 28px;
+  }
+
+  .swipeBtn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .swipeIcon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .wrapper {
+    width: 847px;
+    margin: 0;
+  }
+}

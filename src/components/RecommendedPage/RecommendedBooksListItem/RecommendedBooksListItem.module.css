@@ -1,5 +1,12 @@
-.bookImg {
+.openBtn {
+  width: 137px;
+  height: 208px;
   margin-bottom: 8px;
+  background-color: transparent;
+}
+
+.bookImg {
+  border-radius: 8px;
 }
 
 .bookName {
@@ -17,4 +24,34 @@
   line-height: 1.2;
   letter-spacing: -0.02em;
   color: var(--light-gray);
+}
+
+.modalWrapper {
+  .modalContent {
+    margin: 0 auto;
+    min-width: 320px;
+    max-width: 335px;
+    background-color: var(--light-black);
+    padding: 40px;
+  }
+}
+
+.closeIcon {
+  width: 22px;
+  height: 22px;
+  color: var(--white);
+}
+
+@media only screen and (min-width: 768px) {
+  .modalWrapper {
+    .modalContent {
+      min-width: none;
+      max-width: none;
+      width: 500px;
+      padding: 50px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
 }

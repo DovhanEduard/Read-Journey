@@ -2,7 +2,7 @@ import Layout from 'components/Common/Layout/Layout';
 import LoginPage from 'pages/LoginPage/LoginPage';
 import MyLibraryPage from 'pages/MyLibraryPage';
 import ReadingPage from 'pages/ReadingPage';
-import RecommendedPage from 'pages/RecommendedPage';
+import RecommendedPage from 'pages/RecommendedPage/RecommendedPage';
 import RegisterPage from 'pages/RegisterPage/RegisterPage';
 import { Route, Routes } from 'react-router-dom';
 

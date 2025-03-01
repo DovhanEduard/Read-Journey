@@ -12,6 +12,8 @@
 
 @media only screen and (min-width: 768px) {
   .divashboard {
+    display: flex;
+    justify-content: space-between;
     min-width: none;
     max-width: none;
     width: 704px;
@@ -23,5 +25,7 @@
   .divashboard {
     width: 353px;
     padding: 20px;
+    flex-direction: column;
+    margin: 0;
   }
 }

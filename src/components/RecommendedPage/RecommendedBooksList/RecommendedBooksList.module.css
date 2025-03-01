@@ -2,3 +2,9 @@
   display: flex;
   gap: 21px;
 }
+
+@media only screen and (min-width: 768px) {
+  .recBooksList {
+    gap: 25px;
+  }
+}
