@@ -1,0 +1,11 @@
+.recBooksList {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 17px;
+}
+
+@media only screen and (min-width: 768px) {
+  .recBooksList {
+    gap: 25px;
+  }
+}

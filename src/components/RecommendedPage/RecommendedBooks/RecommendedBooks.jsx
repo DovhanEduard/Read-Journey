@@ -1,8 +1,8 @@
 import { IoIosArrowForward } from 'react-icons/io';
 import { IoIosArrowBack } from 'react-icons/io';
+import RecommendedBooksList from '../RecommendedBooksList/RecommendedBooksList';
 
 import css from './RecommendedBooks.module.css';
-import RecommendedBooksList from '../RecommendedBooksList/RecommendedBooksList';
 
 const RecommendedBooks = () => {
   return (

@@ -1,11 +1,10 @@
+import css from './LibraryRecommendedBooksListItem.module.css';
 import { useState } from 'react';
 import { Modal } from 'antd';
 import { IoClose } from 'react-icons/io5';
-import DetailedBookInfo from '../DetailedBookInfo/DetailedBookInfo';
+import DetailedBookInfo from 'components/RecommendedPage/DetailedBookInfo/DetailedBookInfo';
 
-import css from './RecommendedBooksListItem.module.css';
-
-const RecommendedBooksListItem = () => {
+const LibraryRecommendedBooksListItem = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
@@ -46,4 +45,4 @@ const RecommendedBooksListItem = () => {
   );
 };
 
-export default RecommendedBooksListItem;
+export default LibraryRecommendedBooksListItem;

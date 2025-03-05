@@ -1,6 +1,6 @@
 import Layout from 'components/Common/Layout/Layout';
 import LoginPage from 'pages/LoginPage/LoginPage';
-import MyLibraryPage from 'pages/MyLibraryPage';
+import MyLibraryPage from 'pages/MyLibraryPage/MyLibraryPage';
 import ReadingPage from 'pages/ReadingPage';
 import RecommendedPage from 'pages/RecommendedPage/RecommendedPage';
 import RegisterPage from 'pages/RegisterPage/RegisterPage';
