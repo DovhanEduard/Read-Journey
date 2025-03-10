@@ -1,0 +1,11 @@
+.bookList {
+  display: flex;
+  gap: 21px;
+  margin-top: 34px;
+}
+
+@media only screen and (min-width: 768px) {
+  .bookList {
+    gap: 25px;
+  }
+}

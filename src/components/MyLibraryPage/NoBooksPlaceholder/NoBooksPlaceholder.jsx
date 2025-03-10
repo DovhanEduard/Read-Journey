@@ -1,6 +1,6 @@
-import css from './NoBooksStub.module.css';
+import css from './NoBooksPlaceholder.module.css';
 
-const NoBooksStub = () => {
+const NoBooksPlaceholder = () => {
   return (
     <div className={css.wrapper}>
       <div className={css.iconWrapper}>
@@ -19,4 +19,4 @@ const NoBooksStub = () => {
   );
 };
 
-export default NoBooksStub;
+export default NoBooksPlaceholder;

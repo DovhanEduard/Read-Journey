@@ -1,4 +1,4 @@
-import NoBooksStub from '../NoBooksStub/NoBooksStub';
+import LibraryBooksList from '../LibraryBooksList/LibraryBooksList';
 import css from './MyLibraryBooks.module.css';
 import { Select } from 'antd';
 
@@ -37,7 +37,9 @@ const MyLibraryBooks = () => {
         ]}
       />
 
-      <NoBooksStub />
+      {/* <NoBooksPlaceholder /> */}
+
+      <LibraryBooksList />
     </div>
   );
 };
