@@ -1,4 +1,5 @@
 import LibraryBooksList from '../LibraryBooksList/LibraryBooksList';
+import NoBooksPlaceholder from '../NoBooksPlaceholder/NoBooksPlaceholder';
 import css from './MyLibraryBooks.module.css';
 import { Select } from 'antd';
 
@@ -14,11 +15,9 @@ const MyLibraryBooks = () => {
       <Select
         defaultValue="All books"
         popupClassName={css.dropdown}
-        style={{ width: 120 }}
         onChange={handleChange}
         options={[
           {
-            className: css.selectOption,
             value: 'allBooks',
             label: 'All books',
           },

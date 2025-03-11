@@ -9,6 +9,8 @@
   position: absolute;
   top: 40px;
   right: 20px;
+  width: 120px;
+
   height: 40px;
 }
 .ant-select-outlined:not(.ant-select-customize-input) .ant-select-selector {
@@ -63,4 +65,26 @@
 
 .ant-select .ant-select-arrow {
   color: var(--white);
+}
+
+/* ---------tablet---------- */
+
+@media only screen and (min-width: 768px) {
+  .ant-select-dropdown
+    .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+    font-size: 14px;
+    line-height: 1.28571;
+  }
+}
+
+/* ---------desktop---------- */
+
+@media only screen and (min-width: 1440px) {
+  .ant-select-single {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 153px;
+    height: 46px;
+  }
 }

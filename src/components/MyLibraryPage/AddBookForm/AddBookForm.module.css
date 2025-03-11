@@ -124,7 +124,6 @@
 
     border-radius: 30px;
     padding: 12px 28px;
-    width: 125px;
     height: 42px;
   }
 
@@ -132,7 +131,7 @@
     .modalContent {
       min-width: none;
       max-width: none;
-      width: 500px;
+      width: 342px;
       padding: 50px;
     }
   }
@@ -143,5 +142,9 @@
 @media only screen and (min-width: 1440px) {
   .input {
     width: 310px;
+  }
+
+  .filterFormBtn {
+    margin-bottom: 78px;
   }
 }

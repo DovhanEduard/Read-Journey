@@ -28,3 +28,29 @@
   background-color: var(--dark-gray);
   border-radius: 12px;
 }
+
+/* ---------tablet---------- */
+
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    min-width: none;
+    max-width: none;
+    width: 704px;
+    padding: 40px;
+    margin: 0 auto;
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 1.14286;
+  }
+}
+
+/* ---------desktop---------- */
+
+@media only screen and (min-width: 1440px) {
+  .wrapper {
+    width: 847px;
+    margin: 0;
+  }
+}

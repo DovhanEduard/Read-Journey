@@ -16,7 +16,7 @@ const DetailedBookInfo = () => {
       </div>
 
       <button className={css.addBtn} type="button">
-        Add to library
+        Start reading
       </button>
     </div>
   );

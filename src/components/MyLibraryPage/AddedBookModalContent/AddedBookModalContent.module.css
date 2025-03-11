@@ -33,3 +33,23 @@
   width: 242px;
   color: var(--white);
 }
+
+/* ---------tablet---------- */
+
+@media only screen and (min-width: 768px) {
+  .thumbUpIcon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 32px;
+  }
+
+  .title {
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+}
+
+/* ---------desktop---------- */
+
+@media only screen and (min-width: 1440px) {
+}

@@ -55,14 +55,15 @@
   .wrapper {
     min-width: none;
     max-width: none;
-    width: 704px;
-    padding: 40px;
+    width: 313px;
+    padding: 26px 20px;
+    margin: 0;
   }
 
   .title {
-    font-size: 28px;
-    line-height: 1.14286;
-    margin-bottom: 28px;
+    font-size: 20px;
+    line-height: 1;
+    margin-bottom: 20px;
   }
 
   .swipeBtn {
@@ -74,11 +75,12 @@
     width: 20px;
     height: 20px;
   }
+
+  .link {
+    font-size: 14px;
+    line-height: 1.28571;
+  }
 }
 
 @media only screen and (min-width: 1440px) {
-  .wrapper {
-    width: 847px;
-    margin: 0;
-  }
 }
