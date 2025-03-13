@@ -3,6 +3,7 @@ import css from './LibraryBooksListItem.module.css';
 import { IoClose } from 'react-icons/io5';
 import DetailedBookInfo from 'components/RecommendedPage/DetailedBookInfo/DetailedBookInfo';
 import { useState } from 'react';
+import { FaRegTrashAlt } from 'react-icons/fa';
 
 const LibraryBooksListItem = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,8 +28,15 @@ const LibraryBooksListItem = () => {
         />
       </button>
 
-      <p className={css.bookName}>Lovers of Justice</p>
-      <p className={css.authorName}>Yuri Andrukhovych</p>
+      <div className={css.bookNameWrapper}>
+        <div>
+          <p className={css.bookName}>Lovers of Justice</p>
+          <p className={css.authorName}>Yuri Andrukhovych</p>
+        </div>
+        <button className={css.deleteBtn} type="button">
+          <FaRegTrashAlt className={css.deleteIcon} />
+        </button>
+      </div>
 
       <Modal
         classNames={{ wrapper: css.modalWrapper, content: css.modalContent }}

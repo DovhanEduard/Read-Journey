@@ -1,0 +1,29 @@
+.title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+
+.text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.02em;
+  color: var(--light-gray);
+  margin-bottom: 20px;
+}
+
+.iconWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.starIcon {
+  background-color: var(--dark-gray);
+  border-radius: 100%;
+  padding: 24px;
+}

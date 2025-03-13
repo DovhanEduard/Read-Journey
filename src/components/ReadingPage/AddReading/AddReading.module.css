@@ -1,0 +1,125 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.filterFormTitile {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.inputsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33333;
+  letter-spacing: -0.02em;
+
+  background-color: var(--dark-gray);
+  color: var(--white);
+
+  border-radius: 12px;
+  padding: 14px;
+
+  width: 293px;
+  height: 44px;
+}
+
+.input {
+  input::placeholder {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33333;
+    letter-spacing: -0.02em;
+    color: var(--light-gray);
+  }
+}
+
+.error {
+  color: red;
+}
+
+.submitBtnWrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.filterFormBtn {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: 0.02em;
+  color: var(--white);
+
+  border-radius: 30px;
+  padding: 10px 20px;
+  min-width: 105px;
+  height: 38px;
+
+  background-color: transparent;
+  border: 1px solid var(--gray);
+}
+
+.filterFormBtn:hover,
+.filterFormBtn:focus {
+  color: var(--light-black);
+  border: none;
+  background-color: var(--white);
+}
+
+/* ---------tablet---------- */
+
+@media only screen and (min-width: 768px) {
+  .filterFormTitile {
+    font-size: 14px;
+    line-height: 1.28571;
+  }
+
+  .input {
+    font-size: 14px;
+    line-height: 1.28571;
+
+    padding: 16px 14px;
+
+    width: 293px;
+    height: 50px;
+  }
+
+  .input {
+    input::placeholder {
+      font-size: 14px;
+      line-height: 1.28571;
+    }
+  }
+
+  .filterFormBtn {
+    font-size: 16px;
+    line-height: 1.125;
+
+    border-radius: 30px;
+    padding: 12px 28px;
+    height: 42px;
+  }
+}
+
+/* ---------desktop---------- */
+
+@media only screen and (min-width: 1440px) {
+  .input {
+    width: 310px;
+  }
+
+  .filterFormBtn {
+    margin-bottom: 78px;
+  }
+}

@@ -1,7 +1,7 @@
 import Layout from 'components/Common/Layout/Layout';
 import LoginPage from 'pages/LoginPage/LoginPage';
 import MyLibraryPage from 'pages/MyLibraryPage/MyLibraryPage';
-import ReadingPage from 'pages/ReadingPage';
+import ReadingPage from 'pages/ReadingPage/ReadingPage';
 import RecommendedPage from 'pages/RecommendedPage/RecommendedPage';
 import RegisterPage from 'pages/RegisterPage/RegisterPage';
 import { Route, Routes } from 'react-router-dom';
