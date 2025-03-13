@@ -1,0 +1,25 @@
+.titleWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btnWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.hourGlassIcon {
+  width: 16px;
+  height: 16px;
+  color: var(--white);
+}
+
+.chartIcon {
+  width: 16px;
+  height: 16px;
+  color: var(--white);
+}

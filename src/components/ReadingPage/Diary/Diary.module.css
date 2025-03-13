@@ -1,0 +1,56 @@
+.diaryWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 295px;
+  border-radius: 30px;
+  padding: 16px;
+  background-color: var(--dark-gray);
+}
+
+.deleteBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.deleteIcon {
+  width: 14px;
+  height: 14px;
+  color: var(--light-gray);
+}
+
+.diaryText {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.33333;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.minute {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--light-gray);
+}
+
+.chartWrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chartText {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33333;
+  letter-spacing: -0.02em;
+  color: var(--light-gray);
+}
+
+.perHourText {
+  text-align: center;
+  width: 48px;
+}
