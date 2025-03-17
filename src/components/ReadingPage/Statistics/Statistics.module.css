@@ -1,0 +1,61 @@
+.statisticsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 295px;
+  border-radius: 30px;
+  padding: 20px;
+  background-color: var(--dark-gray);
+}
+
+.progressbarWrapper {
+  width: 116px;
+  height: 116px;
+  margin-bottom: 20px;
+}
+
+.progressBar :global(.CircularProgressbar-path) {
+  stroke: var(--green); /* Колір заповненої частини */
+  stroke-linecap: round; /* Закруглені кінці лінії */
+}
+
+.progressBar :global(.CircularProgressbar-trail) {
+  stroke: var(--light-black); /* Колір фону */
+}
+
+.progressBar :global(.CircularProgressbar-text) {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.11111;
+  letter-spacing: -0.02em;
+
+  dominant-baseline: central;
+  text-anchor: middle;
+  font-weight: bold;
+  fill: var(--white);
+}
+
+.percentage {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.square {
+  color: var(--green);
+  margin-right: 15px;
+  width: 14px;
+  height: 14px;
+}
+
+.readPages {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--light-gray);
+}

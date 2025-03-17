@@ -1,0 +1,54 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.booksIcon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.02em;
+  color: var(--light-gray);
+  text-align: center;
+}
+
+.accentColor {
+  color: var(--white);
+}
+
+/* ---------tablet---------- */
+
+@media only screen and (min-width: 768px) {
+  .booksIcon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 32px;
+  }
+
+  .title {
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+}
+
+/* ---------desktop---------- */
+
+@media only screen and (min-width: 1440px) {
+}
