@@ -19,11 +19,33 @@
 .iconWrapper {
   display: flex;
   justify-content: center;
+  margin: 0 auto;
   margin-bottom: 15px;
-}
-
-.starIcon {
   background-color: var(--dark-gray);
   border-radius: 100%;
   padding: 24px;
+  height: 80px;
+  width: 80px;
+}
+
+/* ---------tablet---------- */
+
+@media only screen and (min-width: 768px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .text {
+    margin-bottom: 50px;
+  }
+
+  .iconWrapper {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+/* ---------desktop---------- */
+
+@media only screen and (min-width: 1440px) {
 }

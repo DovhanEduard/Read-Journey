@@ -5,7 +5,7 @@ const Diary = () => {
   return (
     <div className={css.diaryWrapper}>
       <div className={css.statWrapper}>
-        <p className={css.diaryText}>21.10.2</p>
+        <p className={css.diaryDateText}>21.10.2</p>
         <p className={css.diaryText}>23</p>
         <p className={css.diaryText}>7.6%</p>
         <p className={css.minute}>29 minutes</p>

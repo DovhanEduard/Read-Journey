@@ -25,7 +25,7 @@ const Details = () => {
   return (
     <div className={css.detailsWrapper}>
       <div className={css.titleWrapper}>
-        <h2>Diary</h2>
+        <h2 className={css.title}>Diary</h2>
         <div className={css.btnWrapper}>
           <button className={css.diaryBtn} type="button">
             <FaRegHourglass className={css.hourGlassIcon} />
@@ -41,7 +41,7 @@ const Details = () => {
 
       <Modal
         classNames={{ wrapper: css.modalWrapper, content: css.modalContent }}
-        open={isModalOpen}
+        open={true}
         onOk={handleOk}
         onCancel={handleCancel}
         centered={true}

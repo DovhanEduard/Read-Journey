@@ -7,16 +7,13 @@
   background-color: var(--dark-gray);
 }
 
-.deleteBtn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.deleteIcon {
-  width: 14px;
-  height: 14px;
-  color: var(--light-gray);
+.diaryDateText {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.33333;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  margin-bottom: 4px;
 }
 
 .diaryText {
@@ -53,4 +50,73 @@
 .perHourText {
   text-align: center;
   width: 48px;
+}
+
+.deleteBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.deleteIcon {
+  width: 14px;
+  height: 14px;
+  color: var(--light-gray);
+}
+
+/* ---------tablet---------- */
+
+@media only screen and (min-width: 768px) {
+  .diaryWrapper {
+    width: 321px;
+    height: 252px;
+  }
+
+  .diaryDateText {
+    font-size: 16px;
+    line-height: 1.125;
+    margin-bottom: 17px;
+  }
+
+  .diaryText {
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  .minute {
+    font-size: 12px;
+    line-height: 1.16667;
+  }
+
+  .chartWrapper {
+    align-items: start;
+    gap: 8px;
+  }
+
+  .chartText {
+    font-size: 14px;
+    line-height: 1.28571;
+  }
+
+  .perHourText {
+    width: 56px;
+  }
+}
+
+/* ---------desktop---------- */
+
+@media only screen and (min-width: 1440px) {
+  .diaryWrapper {
+    width: 313px;
+    height: 373px;
+    padding: 20px;
+  }
+
+  .diaryDateText {
+    margin-bottom: 29px;
+  }
+
+  .chartWrapper {
+    gap: 10px;
+  }
 }
