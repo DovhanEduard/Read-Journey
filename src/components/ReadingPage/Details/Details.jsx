@@ -6,7 +6,6 @@ import Statistics from '../Statistics/Statistics';
 import { useState } from 'react';
 import { Modal } from 'antd';
 import { IoClose } from 'react-icons/io5';
-import AddedBookModalContent from 'components/MyLibraryPage/AddedBookModalContent/AddedBookModalContent';
 import BookIsReadModalContent from '../BookIsReadModalContent/BookIsReadModalContent';
 
 const Details = () => {
@@ -41,7 +40,7 @@ const Details = () => {
 
       <Modal
         classNames={{ wrapper: css.modalWrapper, content: css.modalContent }}
-        open={true}
+        open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
         centered={true}
