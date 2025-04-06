@@ -15,7 +15,7 @@ export const register = createAsyncThunk(
     try {
       const { data } = await instance.post('users/signup', formData);
 
-      setAuthToken(data.refreshToken);
+      setAuthToken(data.token);
 
       return data;
     } catch (error) {
@@ -27,13 +27,11 @@ export const register = createAsyncThunk(
 export const login = createAsyncThunk(
   'auth/login',
   async (formData, thunkAPI) => {
-    console.log(formData);
-
     try {
       const { data } = await instance.post('users/signin', formData);
-      console.log(data.refreshToken);
 
-      setAuthToken(data.refreshToken);
+      setAuthToken(data.token);
+      console.log(data.token);
 
       return data;
     } catch (error) {
@@ -50,7 +48,10 @@ export const refreshUser = createAsyncThunk(
       const token = state.auth.refreshToken;
 
       setAuthToken(token);
+
       const { data } = await instance.get('users/current/refresh');
+
+      setAuthToken(data.token);
 
       return data;
     } catch (error) {

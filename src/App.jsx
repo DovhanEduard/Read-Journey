@@ -7,6 +7,7 @@ import RegisterPage from 'pages/RegisterPage/RegisterPage';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { register, login, logout, refreshUser } from './redux/auth/operations';
+import { getRecommendedBooks } from './redux/book/operations';
 
 function App() {
   const dispatch = useDispatch();
@@ -19,7 +20,9 @@ function App() {
   );
 
   setTimeout(() => {
-    dispatch(logout());
+    dispatch(
+      getRecommendedBooks({ title: '', author: '', page: 1, limit: 10 })
+    );
   }, 2000);
 
   return (
