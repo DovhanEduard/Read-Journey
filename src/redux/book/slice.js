@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getRecommendedBooks } from './operations';
+import { getRecommendedBooks, getUserBooks, getBookById } from './operations';
 
 const INITIAL_STATE = {
   recommendedBooks: [],
+  userBooks: [],
+  book: null,
   page: null,
   perPage: null,
   totalPages: null,
@@ -30,20 +32,35 @@ export const bookSlice = createSlice({
       .addCase(getRecommendedBooks.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      });
+      })
 
-    //   .addCase(addContact.pending, state => {
-    //     state.isLoading = true;
-    //   })
-    //   .addCase(addContact.fulfilled, (state, action) => {
-    //     state.isLoading = false;
-    //     state.error = null;
-    //     state.items.push(action.payload);
-    //   })
-    //   .addCase(addContact.rejected, (state, action) => {
-    //     state.isLoading = false;
-    //     state.error = action.payload;
-    //   })
+      .addCase(getUserBooks.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(getUserBooks.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+
+        state.userBooks = action.payload;
+      })
+      .addCase(getUserBooks.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+
+      .addCase(getBookById.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(getBookById.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+
+        state.book = action.payload;
+      })
+      .addCase(getBookById.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
 
     //   .addCase(deleteContact.pending, state => {
     //     state.isLoading = true;

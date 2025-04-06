@@ -4,18 +4,13 @@ import { instance } from '../auth/operations';
 export const getRecommendedBooks = createAsyncThunk(
   'book/getRecommendedBooks',
   async ({ title = '', author = '', page = 1, limit = 10 }, thunkAPI) => {
-    console.log(1);
     try {
-      console.log(1);
-
       const { data } = await instance.get('/books/recommend', {
         title,
         author,
         page,
         limit,
       });
-
-      console.log(data);
 
       return data;
     } catch (error) {
@@ -24,11 +19,27 @@ export const getRecommendedBooks = createAsyncThunk(
   }
 );
 
-export const addContact = createAsyncThunk(
-  'contacts/addContact',
-  async (contact, thunkAPI) => {
+export const getUserBooks = createAsyncThunk(
+  'book/getUserBooks',
+  async (status = 'unread', thunkAPI) => {
     try {
-      const { data } = await instance.post('/contacts', contact);
+      const { data } = await instance.get(`/books/own?status=${status}`);
+
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getBookById = createAsyncThunk(
+  'book/getBookById',
+  async (id, thunkAPI) => {
+    try {
+      const { data } = await instance.get(`/books/${id}`);
+
+      console.log(data);
+
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
