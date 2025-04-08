@@ -11,6 +11,10 @@ import {
   getRecommendedBooks,
   getUserBooks,
   getBookById,
+  addNewBook,
+  addBookFromRecommend,
+  addStartReadingPointToBook,
+  addFinishReadingPointToBook,
 } from './redux/book/operations';
 
 function App() {
@@ -22,10 +26,16 @@ function App() {
       password: '1234567',
     })
   );
-
+  // 673262c15914964b4a87e734
   setTimeout(() => {
     dispatch(getBookById('673262c15914964b4a87e734'));
   }, 2000);
+
+  setTimeout(() => {
+    dispatch(
+      addStartReadingPointToBook({ id: '673262c15914964b4a87e734', page: 15 })
+    );
+  }, 4000);
 
   return (
     <>

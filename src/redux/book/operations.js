@@ -38,6 +38,52 @@ export const getBookById = createAsyncThunk(
     try {
       const { data } = await instance.get(`/books/${id}`);
 
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const addNewBook = createAsyncThunk(
+  'book/addNewBook',
+  async ({ title, author, totalPages }, thunkAPI) => {
+    try {
+      const { data } = await instance.post(`/books/add`, {
+        title,
+        author,
+        totalPages,
+      });
+
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const addBookFromRecommend = createAsyncThunk(
+  'book/addBookFromRecommend',
+  async (bookId, thunkAPI) => {
+    try {
+      const { data } = await instance.post(`/books/add/${bookId}`);
+
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const addStartReadingPointToBook = createAsyncThunk(
+  'book/addStartReadingPointToBook',
+  async ({ id, page }, thunkAPI) => {
+    try {
+      const { data } = await instance.post(`/books/reading/start`, {
+        id,
+        page,
+      });
+
       console.log(data);
 
       return data;
@@ -47,11 +93,16 @@ export const getBookById = createAsyncThunk(
   }
 );
 
-export const deleteContact = createAsyncThunk(
-  'contacts/deleteContact',
-  async (contactId, thunkAPI) => {
+export const addFinishReadingPointToBook = createAsyncThunk(
+  'book/addFinishReadingPointToBook',
+  async ({ id, page }, thunkAPI) => {
     try {
-      const { data } = await instance.delete(`/contacts/${contactId}`);
+      const { data } = await instance.post(`/books/reading/finish`, {
+        id,
+        page,
+      });
+
+      console.log(data);
 
       return data;
     } catch (error) {

@@ -1,5 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getRecommendedBooks, getUserBooks, getBookById } from './operations';
+import {
+  getRecommendedBooks,
+  getUserBooks,
+  getBookById,
+  addNewBook,
+  addBookFromRecommend,
+  addStartReadingPointToBook,
+  addFinishReadingPointToBook,
+} from './operations';
 
 const INITIAL_STATE = {
   recommendedBooks: [],
@@ -58,6 +66,74 @@ export const bookSlice = createSlice({
         state.book = action.payload;
       })
       .addCase(getBookById.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+
+      .addCase(addNewBook.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(addNewBook.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+
+        state.userBooks.push(action.payload);
+      })
+      .addCase(addNewBook.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+
+      .addCase(addBookFromRecommend.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(addBookFromRecommend.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+
+        state.userBooks.push(action.payload);
+      })
+      .addCase(addBookFromRecommend.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+
+      .addCase(addStartReadingPointToBook.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(addStartReadingPointToBook.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+
+        state.userBooks = state.userBooks.map(book => {
+          if (book._id === action.payload._id) {
+            return action.payload;
+          }
+
+          return book;
+        });
+      })
+      .addCase(addStartReadingPointToBook.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+
+      .addCase(addFinishReadingPointToBook.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(addFinishReadingPointToBook.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+
+        state.userBooks = state.userBooks.map(book => {
+          if (book._id === action.payload._id) {
+            return action.payload;
+          }
+
+          return book;
+        });
+      })
+      .addCase(addFinishReadingPointToBook.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });
