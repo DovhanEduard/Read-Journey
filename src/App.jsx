@@ -15,6 +15,8 @@ import {
   addBookFromRecommend,
   addStartReadingPointToBook,
   addFinishReadingPointToBook,
+  deleteReadingBook,
+  deleteUserBook,
 } from './redux/book/operations';
 
 function App() {
@@ -27,15 +29,19 @@ function App() {
     })
   );
   // 673262c15914964b4a87e734
+
+  // 6759b16a5914964b4a8b243f 681c73a35914964b4a930899
   setTimeout(() => {
-    dispatch(getBookById('673262c15914964b4a87e734'));
+    dispatch(getBookById('6759b16a5914964b4a8b243f'));
   }, 2000);
 
-  setTimeout(() => {
-    dispatch(
-      addStartReadingPointToBook({ id: '673262c15914964b4a87e734', page: 15 })
-    );
-  }, 4000);
+  // setTimeout(() => {
+  //   dispatch(
+  //     deleteUserBook({
+  //       id: '6759b16a5914964b4a8b243f',
+  //     })
+  //   );
+  // }, 4000);
 
   return (
     <>

@@ -84,8 +84,6 @@ export const addStartReadingPointToBook = createAsyncThunk(
         page,
       });
 
-      console.log(data);
-
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -102,10 +100,44 @@ export const addFinishReadingPointToBook = createAsyncThunk(
         page,
       });
 
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteReadingBook = createAsyncThunk(
+  'book/deleteReadingBook',
+  async ({ bookId, readingId }, thunkAPI) => {
+    try {
+      const { data } = await instance.delete(
+        `/books/reading?bookId=${bookId}&readingId=${readingId}`
+      );
+
+      return data;
+    } catch (error) {
+      console.log(error);
+
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteUserBook = createAsyncThunk(
+  'book/deleteUserBook',
+  async ({ id }, thunkAPI) => {
+    try {
+      console.log(id);
+
+      const { data } = await instance.delete(`/books/remove/${id}`);
+
       console.log(data);
 
       return data;
     } catch (error) {
+      console.log(error);
+
       return thunkAPI.rejectWithValue(error.message);
     }
   }

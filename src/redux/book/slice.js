@@ -7,6 +7,8 @@ import {
   addBookFromRecommend,
   addStartReadingPointToBook,
   addFinishReadingPointToBook,
+  deleteReadingBook,
+  deleteUserBook,
 } from './operations';
 
 const INITIAL_STATE = {
@@ -134,6 +136,30 @@ export const bookSlice = createSlice({
         });
       })
       .addCase(addFinishReadingPointToBook.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+
+      .addCase(deleteReadingBook.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(deleteReadingBook.fulfilled, state => {
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(deleteReadingBook.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+
+      .addCase(deleteUserBook.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(deleteUserBook.fulfilled, state => {
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(deleteUserBook.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });
