@@ -4,9 +4,15 @@ import { Input } from 'antd';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import Logo from 'components/Common/Logo/Logo';
-import { Link } from 'react-router';
+import { Link, Navigate } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAuthIsLoggedIn } from '../../../redux/auth/selectors';
+import { loginUser } from '../../../redux/auth/operations';
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector(selectAuthIsLoggedIn);
+
   const schema = Yup.object().shape({
     email: Yup.string()
       .email('Invalid email format')
@@ -26,11 +32,13 @@ const LoginForm = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = data => {
-    console.log(data);
+  const onSubmit = registerData => {
+    dispatch(loginUser(registerData));
   };
 
-  //   console.log(watch('name'));
+  if (isLoggedIn) {
+    return <Navigate to="/recommended" replace />;
+  }
 
   return (
     <form className={css.form} onSubmit={handleSubmit(onSubmit)}>

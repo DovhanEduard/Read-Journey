@@ -5,9 +5,16 @@ import css from './AppBar.module.css';
 import { HiOutlineMenuAlt3 } from 'react-icons/hi';
 import MobileMenu from '../MobileMenu/MobileMenu';
 import UserNav from '../UserNav/UserNav';
+import { useDispatch } from 'react-redux';
+import { logoutUser } from '../../../redux/auth/operations';
 
 const AppBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    dispatch(logoutUser());
+  };
   return (
     <div className="container">
       <header className={css.header}>
@@ -18,7 +25,7 @@ const AppBar = () => {
         <div className={css.wrapper}>
           <UserBar />
 
-          <button className={css.logoutBtn} type="button">
+          <button className={css.logoutBtn} type="button" onClick={logout}>
             Log out
           </button>
 

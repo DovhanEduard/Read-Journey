@@ -4,36 +4,30 @@ import MyLibraryPage from 'pages/MyLibraryPage/MyLibraryPage';
 import ReadingPage from 'pages/ReadingPage/ReadingPage';
 import RecommendedPage from 'pages/RecommendedPage/RecommendedPage';
 import RegisterPage from 'pages/RegisterPage/RegisterPage';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { register, login, logout, refreshUser } from './redux/auth/operations';
-import {
-  getRecommendedBooks,
-  getUserBooks,
-  getBookById,
-  addNewBook,
-  addBookFromRecommend,
-  addStartReadingPointToBook,
-  addFinishReadingPointToBook,
-  deleteReadingBook,
-  deleteUserBook,
-} from './redux/book/operations';
+import { refreshUser } from './redux/auth/operations.js';
 
 function App() {
   const dispatch = useDispatch();
 
-  dispatch(
-    login({
-      email: 'test@gmail.com',
-      password: '1234567',
-    })
-  );
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, []);
+
+  // dispatch(
+  //   login({
+  //     email: 'test@gmail.com',
+  //     password: '1234567',
+  //   })
+  // );
   // 673262c15914964b4a87e734
 
   // 6759b16a5914964b4a8b243f 681c73a35914964b4a930899
-  setTimeout(() => {
-    dispatch(getBookById('6759b16a5914964b4a8b243f'));
-  }, 2000);
+  // setTimeout(() => {
+  //   dispatch(getBookById('6759b16a5914964b4a8b243f'));
+  // }, 2000);
 
   // setTimeout(() => {
   //   dispatch(

@@ -4,9 +4,15 @@ import { Input } from 'antd';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import Logo from 'components/Common/Logo/Logo';
-import { Link } from 'react-router';
+import { Link, Navigate } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+import { registerUser } from '../../../redux/auth/operations';
+import { selectAuthIsLoggedIn } from '../../../redux/auth/selectors';
 
 const RegisterForm = () => {
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector(selectAuthIsLoggedIn);
+
   const schema = Yup.object().shape({
     name: Yup.string()
       .min(2, 'Name must be at least 2 characters')
@@ -32,11 +38,13 @@ const RegisterForm = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = data => {
-    console.log(data);
+  const onSubmit = registerData => {
+    dispatch(registerUser(registerData));
   };
 
-  //   console.log(watch('name'));
+  if (isLoggedIn) {
+    return <Navigate to="/recommended" replace />;
+  }
 
   return (
     <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
@@ -84,6 +92,8 @@ const RegisterForm = () => {
           Already have an account?
         </Link>
       </div>
+
+      <Navigate />
     </form>
   );
 };

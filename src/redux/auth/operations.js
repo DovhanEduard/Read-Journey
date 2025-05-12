@@ -9,7 +9,7 @@ const setAuthToken = token => {
   instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-export const register = createAsyncThunk(
+export const registerUser = createAsyncThunk(
   'auth/register',
   async (formData, thunkAPI) => {
     try {
@@ -24,7 +24,7 @@ export const register = createAsyncThunk(
   }
 );
 
-export const login = createAsyncThunk(
+export const loginUser = createAsyncThunk(
   'auth/login',
   async (formData, thunkAPI) => {
     try {
@@ -41,8 +41,10 @@ export const login = createAsyncThunk(
 );
 
 export const refreshUser = createAsyncThunk(
-  'auth/refresh',
+  'auth/refreshUser',
   async (_, thunkAPI) => {
+    console.log(12312312);
+
     try {
       const state = thunkAPI.getState();
       const token = state.auth.refreshToken;
@@ -61,7 +63,7 @@ export const refreshUser = createAsyncThunk(
   {
     condition: (_, thunkAPI) => {
       const state = thunkAPI.getState();
-      const token = state.auth.token;
+      const token = state.auth.refreshToken;
 
       if (token) return true;
 
@@ -70,22 +72,25 @@ export const refreshUser = createAsyncThunk(
   }
 );
 
-export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
-  try {
-    const state = thunkAPI.getState();
-    const token = state.auth.token;
+export const logoutUser = createAsyncThunk(
+  'auth/logout',
+  async (_, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+      const token = state.auth.token;
 
-    setAuthToken(token);
+      setAuthToken(token);
 
-    const { data } = await instance.post('users/signout');
+      const { data } = await instance.post('users/signout');
 
-    setAuthToken('');
+      setAuthToken('');
 
-    return data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
-});
+);
 
 export const getCurrentUser = createAsyncThunk(
   'auth/getCurrentUser',
