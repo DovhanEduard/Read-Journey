@@ -2,6 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .registerContainer {
+    margin-top: 32px;
+  }
 }
 
 @media only screen and (min-width: 1440px) {

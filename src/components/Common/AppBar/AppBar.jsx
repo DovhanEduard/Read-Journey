@@ -5,10 +5,12 @@ import css from './AppBar.module.css';
 import { HiOutlineMenuAlt3 } from 'react-icons/hi';
 import MobileMenu from '../MobileMenu/MobileMenu';
 import UserNav from '../UserNav/UserNav';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from '../../../redux/auth/operations';
+import { selectAuthIsLoggedIn } from '../../../redux/auth/selectors';
 
 const AppBar = () => {
+  const isLoggedIn = useSelector(selectAuthIsLoggedIn);
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
 
@@ -16,31 +18,33 @@ const AppBar = () => {
     dispatch(logoutUser());
   };
   return (
-    <div className="container">
-      <header className={css.header}>
-        <Logo additionalClassName={css.headerLogo} />
+    isLoggedIn && (
+      <div className="container">
+        <header className={css.header}>
+          <Logo additionalClassName={css.headerLogo} />
 
-        <UserNav />
+          <UserNav />
 
-        <div className={css.wrapper}>
-          <UserBar />
+          <div className={css.wrapper}>
+            <UserBar />
 
-          <button className={css.logoutBtn} type="button" onClick={logout}>
-            Log out
-          </button>
+            <button className={css.logoutBtn} type="button" onClick={logout}>
+              Log out
+            </button>
 
-          <button
-            className={css.burgerMenuBtn}
-            type="button"
-            onClick={() => setIsOpen(true)}
-          >
-            <HiOutlineMenuAlt3 className={css.burgerIcon} />
-          </button>
-        </div>
+            <button
+              className={css.burgerMenuBtn}
+              type="button"
+              onClick={() => setIsOpen(true)}
+            >
+              <HiOutlineMenuAlt3 className={css.burgerIcon} />
+            </button>
+          </div>
 
-        <MobileMenu isOpen={isOpen} onClose={() => setIsOpen(false)} />
-      </header>
-    </div>
+          <MobileMenu isOpen={isOpen} onClose={() => setIsOpen(false)} />
+        </header>
+      </div>
+    )
   );
 };
 

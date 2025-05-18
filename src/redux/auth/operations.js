@@ -31,7 +31,6 @@ export const loginUser = createAsyncThunk(
       const { data } = await instance.post('users/signin', formData);
 
       setAuthToken(data.token);
-      console.log(data.token);
 
       return data;
     } catch (error) {
@@ -43,8 +42,6 @@ export const loginUser = createAsyncThunk(
 export const refreshUser = createAsyncThunk(
   'auth/refreshUser',
   async (_, thunkAPI) => {
-    console.log(12312312);
-
     try {
       const state = thunkAPI.getState();
       const token = state.auth.refreshToken;
@@ -55,7 +52,9 @@ export const refreshUser = createAsyncThunk(
 
       setAuthToken(data.token);
 
-      return data;
+      const userData = await instance.get('users/current');
+
+      return userData.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

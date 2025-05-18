@@ -62,6 +62,9 @@ export const authSlice = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
 
+        state.user.name = action.payload.name;
+        state.user.email = action.payload.email;
+
         state.token = action.payload.token;
         state.refreshToken = action.payload.refreshToken;
       })
