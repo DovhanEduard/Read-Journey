@@ -14,10 +14,45 @@
   border: 1px solid var(--gray);
 }
 
+.firstNameLetter {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+
+.name {
+  display: none;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.125;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+
 @media only screen and (min-width: 768px) {
   .userWrapper {
     line-height: 1.125;
     width: 40px;
     height: 40px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .wrraper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .userWrapper {
+    line-height: 1.125;
+    width: 40px;
+    height: 40px;
+  }
+
+  .name {
+    display: block;
   }
 }

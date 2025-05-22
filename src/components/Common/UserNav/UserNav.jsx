@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import css from './UserNav.module.css';
 
 const UserNav = () => {
@@ -5,10 +6,10 @@ const UserNav = () => {
     <nav className={css.nav}>
       <ul className={css.navList}>
         <li className={css.navItem}>
-          <a href="#">Home</a>
+          <Link to="/recommended">Home</Link>
         </li>
         <li className={css.navItem}>
-          <a href="#">My Library</a>
+          <Link to="/library">My library</Link>
         </li>
       </ul>
     </nav>

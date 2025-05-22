@@ -1,7 +1,15 @@
 import { useEffect } from 'react';
 import css from './MobileMenu.module.css';
+import { useDispatch } from 'react-redux';
+import { logoutUser } from '../../../redux/auth/operations';
 
 const MobileMenu = ({ isOpen, onClose }) => {
+  const dispatch = useDispatch();
+
+  const onLogout = () => {
+    dispatch(logoutUser());
+  };
+
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : 'auto';
   }, [isOpen]);
@@ -26,7 +34,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
             </li>
           </ul>
         </nav>
-        <button className={css.logoutButton} type="button">
+        <button className={css.logoutButton} type="button" onClick={onLogout}>
           Log out
         </button>
       </div>

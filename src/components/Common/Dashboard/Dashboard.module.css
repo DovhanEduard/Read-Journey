@@ -1,4 +1,4 @@
-.divashboard {
+.dashboard {
   min-width: 320px;
   max-width: 335px;
 
@@ -11,7 +11,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .divashboard {
+  .dashboard {
     display: flex;
     min-width: none;
     max-width: none;
@@ -22,7 +22,7 @@
 }
 
 @media only screen and (min-width: 1440px) {
-  .divashboard {
+  .dashboard {
     width: 353px;
     padding: 20px;
     flex-direction: column;
