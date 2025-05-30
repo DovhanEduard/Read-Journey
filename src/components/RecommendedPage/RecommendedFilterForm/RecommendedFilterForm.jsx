@@ -1,18 +1,22 @@
+import { useDispatch } from 'react-redux';
 import css from './RecommendedFilterForm.module.css';
 import { useForm } from 'react-hook-form';
+import { getRecommendedBooks } from '../../../redux/book/operations';
 
 const RecommendedFilterForm = () => {
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({});
 
-  const onSubmit = data => {
-    console.log(data);
+  const onSubmit = formData => {
+    dispatch(
+      getRecommendedBooks({ title: formData.title, author: formData.author })
+    );
   };
-
-  //   console.log(watch('name'));
 
   return (
     <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
@@ -22,22 +26,18 @@ const RecommendedFilterForm = () => {
         <input
           className={css.input}
           placeholder="Book title:"
-          {...register('bookTitle')}
+          {...register('title')}
         />
 
-        {errors.bookTitle && (
-          <p className={css.error}>{errors.email.message}</p>
-        )}
+        {errors.title && <p className={css.error}>{errors.email.message}</p>}
 
         <input
           className={css.input}
           placeholder="The author:"
-          {...register('theAuthor')}
+          {...register('author')}
         />
 
-        {errors.theAuthor && (
-          <p className={css.error}>{errors.email.message}</p>
-        )}
+        {errors.author && <p className={css.error}>{errors.email.message}</p>}
       </div>
 
       <div className={css.submitBtnWrapper}>

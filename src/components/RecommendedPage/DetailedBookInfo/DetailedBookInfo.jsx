@@ -1,18 +1,14 @@
 import css from './DetailedBookInfo.module.css';
 
-const DetailedBookInfo = () => {
+const DetailedBookInfo = ({ book }) => {
   return (
     <div className={css.wrapper}>
-      <img
-        className={css.bookImage}
-        src="/public/img/books/book-2.jpg"
-        alt="book image"
-      />
+      <img className={css.bookImage} src={book.imageUrl} alt="book image" />
 
       <div className={css.infoWrapper}>
-        <p className={css.bookName}>Troscha</p>
-        <p className={css.authorName}>Vasyl Shkliar</p>
-        <p className={css.pages}>416 pages</p>
+        <p className={css.bookName}>{book.title}</p>
+        <p className={css.authorName}>{book.author}</p>
+        <p className={css.pages}>{book.totalPages} pages</p>
       </div>
 
       <button className={css.addBtn} type="button">

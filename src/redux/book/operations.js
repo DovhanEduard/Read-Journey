@@ -6,10 +6,12 @@ export const getRecommendedBooks = createAsyncThunk(
   async ({ title = '', author = '', page = 1, limit = 10 }, thunkAPI) => {
     try {
       const { data } = await instance.get('/books/recommend', {
-        title,
-        author,
-        page,
-        limit,
+        params: {
+          title,
+          author,
+          page,
+          limit,
+        },
       });
 
       return data;

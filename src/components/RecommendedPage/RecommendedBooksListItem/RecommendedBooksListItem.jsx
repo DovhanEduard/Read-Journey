@@ -5,7 +5,7 @@ import DetailedBookInfo from '../DetailedBookInfo/DetailedBookInfo';
 
 import css from './RecommendedBooksListItem.module.css';
 
-const RecommendedBooksListItem = () => {
+const RecommendedBooksListItem = ({ book }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
@@ -21,15 +21,11 @@ const RecommendedBooksListItem = () => {
   return (
     <div className={css.cardWrapper}>
       <button className={css.openBtn} type="button" onClick={showModal}>
-        <img
-          className={css.bookImg}
-          src="/img/books/book-1.jpg"
-          alt="book image"
-        />
+        <img className={css.bookImg} src={book.imageUrl} alt="book image" />
       </button>
 
-      <p className={css.bookName}>Lovers of Justice</p>
-      <p className={css.authorName}>Yuri Andrukhovych</p>
+      <p className={css.bookName}>{book.title}</p>
+      <p className={css.authorName}>{book.author}</p>
 
       <Modal
         classNames={{ wrapper: css.modalWrapper, content: css.modalContent }}
@@ -40,7 +36,7 @@ const RecommendedBooksListItem = () => {
         footer={null}
         closeIcon={<IoClose className={css.closeIcon} />}
       >
-        <DetailedBookInfo />
+        <DetailedBookInfo book={book} />
       </Modal>
     </div>
   );
