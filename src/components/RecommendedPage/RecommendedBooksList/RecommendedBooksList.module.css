@@ -3,8 +3,19 @@
   gap: 21px;
 }
 
+.recBooksListItem {
+  width: 137px;
+}
+
 @media only screen and (min-width: 768px) {
   .recBooksList {
-    gap: 25px;
+    flex-wrap: wrap;
+    gap: 27px 25px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .recBooksList {
+    gap: 27px 20px;
   }
 }

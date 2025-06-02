@@ -44,6 +44,10 @@
   color: var(--white);
 }
 
+.swipeBtn:disabled .swipeIcon {
+  color: grey;
+}
+
 @media only screen and (min-width: 768px) {
   .wrapper {
     min-width: none;

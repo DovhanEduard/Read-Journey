@@ -5,13 +5,24 @@ import { useEffect } from 'react';
 import { getRecommendedBooks } from '../../../redux/book/operations';
 import { selectRecommendedBooks } from '../../../redux/book/selectors';
 
-const RecommendedBooksList = () => {
+const RecommendedBooksList = ({ page }) => {
   const dispatch = useDispatch();
   const recommendedBooks = useSelector(selectRecommendedBooks);
 
   useEffect(() => {
-    dispatch(getRecommendedBooks({ title: '', author: '' }));
-  }, []);
+    const screenWidth = window.innerWidth;
+    let limit;
+
+    if (screenWidth < 768) {
+      limit = 2;
+    } else if (screenWidth >= 768 && screenWidth < 1440) {
+      limit = 8;
+    } else {
+      limit = 10;
+    }
+
+    dispatch(getRecommendedBooks({ title: '', author: '', page, limit }));
+  }, [page, dispatch]);
 
   return (
     <>

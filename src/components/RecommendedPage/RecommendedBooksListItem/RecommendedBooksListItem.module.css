@@ -18,6 +18,10 @@
   letter-spacing: -0.02em;
   color: var(--white);
   margin-bottom: 2px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .authorName {
