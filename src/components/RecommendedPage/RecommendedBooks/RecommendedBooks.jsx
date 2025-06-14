@@ -15,12 +15,10 @@ const RecommendedBooks = () => {
 
   const onPreviousPage = () => {
     setPage(page - 1);
-    console.log(page - 1);
   };
 
   const onNextPage = () => {
     setPage(page + 1);
-    console.log(page + 1);
   };
 
   return (

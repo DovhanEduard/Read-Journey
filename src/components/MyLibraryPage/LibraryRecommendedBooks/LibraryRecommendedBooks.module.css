@@ -40,8 +40,6 @@
   align-items: center;
   width: 32px;
   height: 32px;
-  border-radius: 100%;
-  border: 1px solid var(--gray);
   background-color: transparent;
 }
 
@@ -49,6 +47,10 @@
   width: 16px;
   height: 16px;
   color: var(--white);
+}
+
+.swipeBtn:disabled .swipeIcon {
+  color: grey;
 }
 
 @media only screen and (min-width: 768px) {
