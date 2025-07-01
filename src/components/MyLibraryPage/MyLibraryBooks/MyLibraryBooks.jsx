@@ -1,11 +1,24 @@
+import { useDispatch, useSelector } from 'react-redux';
 import LibraryBooksList from '../LibraryBooksList/LibraryBooksList';
 import NoBooksPlaceholder from '../NoBooksPlaceholder/NoBooksPlaceholder';
 import css from './MyLibraryBooks.module.css';
 import { Select } from 'antd';
+import { useEffect } from 'react';
+import { getUserBooks } from '../../../redux/book/operations';
+import { selectUserBooks } from '../../../redux/book/selectors';
 
 const MyLibraryBooks = () => {
-  const handleChange = value => {
-    console.log(`selected ${value}`);
+  const dispatch = useDispatch();
+  const userBooks = useSelector(selectUserBooks);
+  console.log(userBooks);
+
+  useEffect(() => {
+    dispatch(getUserBooks());
+  }, [dispatch]);
+
+  const handleChange = selectedValue => {
+    const status = selectedValue;
+    dispatch(getUserBooks(status));
   };
 
   return (
@@ -18,7 +31,7 @@ const MyLibraryBooks = () => {
         onChange={handleChange}
         options={[
           {
-            value: 'allBooks',
+            value: '',
             label: 'All books',
           },
           {
@@ -26,7 +39,7 @@ const MyLibraryBooks = () => {
             label: 'Unread',
           },
           {
-            value: 'inProgress',
+            value: 'in-progress',
             label: 'In progress',
           },
           {
@@ -36,9 +49,7 @@ const MyLibraryBooks = () => {
         ]}
       />
 
-      {/* <NoBooksPlaceholder /> */}
-
-      <LibraryBooksList />
+      {userBooks.length > 0 ? <LibraryBooksList /> : <NoBooksPlaceholder />}
     </div>
   );
 };

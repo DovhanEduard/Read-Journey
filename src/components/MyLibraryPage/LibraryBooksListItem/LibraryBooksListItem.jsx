@@ -4,9 +4,16 @@ import { IoClose } from 'react-icons/io5';
 import DetailedBookInfo from 'components/RecommendedPage/DetailedBookInfo/DetailedBookInfo';
 import { useState } from 'react';
 import { FaRegTrashAlt } from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
+import { deleteUserBook } from '../../../redux/book/operations';
 
-const LibraryBooksListItem = () => {
+const LibraryBooksListItem = ({ book }) => {
+  const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const deleteBook = () => {
+    dispatch(deleteUserBook(book._id));
+  };
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -21,22 +28,16 @@ const LibraryBooksListItem = () => {
   return (
     <div className={css.cardWrapper}>
       <button className={css.openBtn} type="button" onClick={showModal}>
-        <img
-          className={css.bookImg}
-          src="/img/books/book-1.jpg"
-          alt="book image"
-        />
+        <img className={css.bookImg} src={book.imageUrl} alt="book image" />
       </button>
 
-      <div className={css.bookNameWrapper}>
-        <div>
-          <p className={css.bookName}>Lovers of Justice</p>
-          <p className={css.authorName}>Yuri Andrukhovych</p>
-        </div>
-        <button className={css.deleteBtn} type="button">
-          <FaRegTrashAlt className={css.deleteIcon} />
-        </button>
+      <div>
+        <p className={css.bookName}>{book.title}</p>
+        <p className={css.authorName}>{book.author}</p>
       </div>
+      <button className={css.deleteBtn} type="button" onClick={deleteBook}>
+        <FaRegTrashAlt className={css.deleteIcon} />
+      </button>
 
       <Modal
         classNames={{ wrapper: css.modalWrapper, content: css.modalContent }}
@@ -47,7 +48,7 @@ const LibraryBooksListItem = () => {
         footer={null}
         closeIcon={<IoClose className={css.closeIcon} />}
       >
-        <DetailedBookInfo />
+        <DetailedBookInfo book={book} />
       </Modal>
     </div>
   );

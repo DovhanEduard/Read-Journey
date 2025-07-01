@@ -23,9 +23,15 @@ export const getRecommendedBooks = createAsyncThunk(
 
 export const getUserBooks = createAsyncThunk(
   'book/getUserBooks',
-  async (status = 'unread', thunkAPI) => {
+  async (status = '', thunkAPI) => {
     try {
-      const { data } = await instance.get(`/books/own?status=${status}`);
+      const params = {};
+
+      if (status !== '') {
+        params.status = status;
+      }
+
+      const { data } = await instance.get(`/books/own`, { params });
 
       return data;
     } catch (error) {
@@ -128,13 +134,9 @@ export const deleteReadingBook = createAsyncThunk(
 
 export const deleteUserBook = createAsyncThunk(
   'book/deleteUserBook',
-  async ({ id }, thunkAPI) => {
+  async (id, thunkAPI) => {
     try {
-      console.log(id);
-
       const { data } = await instance.delete(`/books/remove/${id}`);
-
-      console.log(data);
 
       return data;
     } catch (error) {

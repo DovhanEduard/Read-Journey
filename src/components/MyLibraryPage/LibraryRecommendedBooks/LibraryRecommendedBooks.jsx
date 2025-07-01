@@ -14,11 +14,6 @@ const LibraryRecommendedBooks = () => {
   const [page, setPage] = useState(1);
   const totalPages = useSelector(selectTotalPages);
   const isLastPage = page === totalPages;
-  const isFirstPage = page === 1;
-
-  const onPreviousPage = () => {
-    setPage(page - 1);
-  };
 
   const onNextPage = () => {
     setPage(page + 1);
