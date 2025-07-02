@@ -1,9 +1,14 @@
 .cardWrapper {
   width: 137px;
+  position: relative;
 }
 .openBtn {
   margin-bottom: 8px;
   background-color: transparent;
+}
+
+.nameWrapper {
+  width: 89px;
 }
 
 .bookImg {
@@ -63,6 +68,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  position: absolute;
+  right: 0;
+  bottom: 2px;
+
   width: 28px;
   height: 28px;
   border-radius: 100%;

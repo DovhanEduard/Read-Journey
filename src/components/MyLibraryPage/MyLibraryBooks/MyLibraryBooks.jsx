@@ -10,7 +10,6 @@ import { selectUserBooks } from '../../../redux/book/selectors';
 const MyLibraryBooks = () => {
   const dispatch = useDispatch();
   const userBooks = useSelector(selectUserBooks);
-  console.log(userBooks);
 
   useEffect(() => {
     dispatch(getUserBooks());

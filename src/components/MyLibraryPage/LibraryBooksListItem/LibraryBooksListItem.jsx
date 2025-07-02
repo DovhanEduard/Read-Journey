@@ -1,11 +1,11 @@
 import { Modal } from 'antd';
 import css from './LibraryBooksListItem.module.css';
 import { IoClose } from 'react-icons/io5';
-import DetailedBookInfo from 'components/RecommendedPage/DetailedBookInfo/DetailedBookInfo';
 import { useState } from 'react';
 import { FaRegTrashAlt } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { deleteUserBook } from '../../../redux/book/operations';
+import StartReadingModalContent from '../StartReadingModalContent/StartReadingModalContent';
 
 const LibraryBooksListItem = ({ book }) => {
   const dispatch = useDispatch();
@@ -31,10 +31,11 @@ const LibraryBooksListItem = ({ book }) => {
         <img className={css.bookImg} src={book.imageUrl} alt="book image" />
       </button>
 
-      <div>
+      <div className={css.nameWrapper}>
         <p className={css.bookName}>{book.title}</p>
         <p className={css.authorName}>{book.author}</p>
       </div>
+
       <button className={css.deleteBtn} type="button" onClick={deleteBook}>
         <FaRegTrashAlt className={css.deleteIcon} />
       </button>
@@ -48,7 +49,7 @@ const LibraryBooksListItem = ({ book }) => {
         footer={null}
         closeIcon={<IoClose className={css.closeIcon} />}
       >
-        <DetailedBookInfo book={book} />
+        <StartReadingModalContent book={book} setIsModalOpen={setIsModalOpen} />
       </Modal>
     </div>
   );

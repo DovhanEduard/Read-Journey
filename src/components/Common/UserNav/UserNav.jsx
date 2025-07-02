@@ -11,6 +11,9 @@ const UserNav = () => {
         <li className={css.navItem}>
           <Link to="/library">My library</Link>
         </li>
+        <li className={css.navItem}>
+          <Link to="/reading">Reading</Link>
+        </li>
       </ul>
     </nav>
   );

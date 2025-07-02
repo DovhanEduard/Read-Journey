@@ -85,7 +85,7 @@ export const addBookFromRecommend = createAsyncThunk(
 
 export const addStartReadingPointToBook = createAsyncThunk(
   'book/addStartReadingPointToBook',
-  async ({ id, page }, thunkAPI) => {
+  async ({ id, page = 1 }, thunkAPI) => {
     try {
       const { data } = await instance.post(`/books/reading/start`, {
         id,
