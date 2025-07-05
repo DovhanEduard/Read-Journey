@@ -4,9 +4,37 @@ import { Modal } from 'antd';
 import { useState } from 'react';
 import { IoClose } from 'react-icons/io5';
 import AddedBookModalContent from '../AddedBookModalContent/AddedBookModalContent';
+import { useDispatch } from 'react-redux';
+import { addNewBook } from '../../../redux/book/operations';
+import toast from 'react-hot-toast';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
 const AddBookForm = () => {
+  const dispatch = useDispatch();
+
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const schema = yup.object().shape({
+    bookTitle: yup
+      .string()
+      .trim()
+      .required('Book title is required')
+      .min(2, 'Title must be at least 2 characters'),
+
+    author: yup
+      .string()
+      .trim()
+      .required('Author is required')
+      .min(2, 'Author name must be at least 2 characters'),
+
+    pages: yup
+      .number()
+      .typeError('Pages must be a number')
+      .integer('Pages must be an integer')
+      .positive('Pages must be a positive number')
+      .required('Number of pages is required'),
+  });
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -22,13 +50,24 @@ const AddBookForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({});
+  } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = data => {
-    console.log(data);
+    dispatch(
+      addNewBook({
+        title: data.bookTitle,
+        author: data.author,
+        totalPages: data.pages,
+      })
+    )
+      .unwrap()
+      .then(() => {
+        showModal();
+      })
+      .catch(() => {
+        toast.error('Book successfully added!');
+      });
   };
-
-  //   console.log(watch('name'));
 
   return (
     <>
@@ -66,11 +105,7 @@ const AddBookForm = () => {
         </div>
 
         <div className={css.submitBtnWrapper}>
-          <button
-            className={css.filterFormBtn}
-            type="submit"
-            onClick={showModal}
-          >
+          <button className={css.filterFormBtn} type="submit">
             Add book
           </button>
         </div>
