@@ -10,6 +10,18 @@ import BookIsReadModalContent from '../BookIsReadModalContent/BookIsReadModalCon
 
 const Details = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDiaryOpen, setIsDiaryOpen] = useState(true);
+  const [isStatisticsOpen, setIsStatisticsOpen] = useState(false);
+
+  const onDiaryOpen = () => {
+    setIsDiaryOpen(true);
+    setIsStatisticsOpen(false);
+  };
+
+  const onStatisticsOpen = () => {
+    setIsStatisticsOpen(true);
+    setIsDiaryOpen(false);
+  };
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -24,19 +36,22 @@ const Details = () => {
   return (
     <div className={css.detailsWrapper}>
       <div className={css.titleWrapper}>
-        <h2 className={css.title}>Diary</h2>
+        <h2 className={css.title}>{isDiaryOpen ? 'Diary' : 'Statistics'}</h2>
         <div className={css.btnWrapper}>
-          <button className={css.diaryBtn} type="button">
+          <button className={css.diaryBtn} type="button" onClick={onDiaryOpen}>
             <FaRegHourglass className={css.hourGlassIcon} />
           </button>
           <button className={css.statisticsBtn} type="button">
-            <AiOutlinePieChart className={css.chartIcon} />
+            <AiOutlinePieChart
+              className={css.chartIcon}
+              onClick={onStatisticsOpen}
+            />
           </button>
         </div>
       </div>
 
-      {/* <Diary /> */}
-      <Statistics />
+      {isDiaryOpen && <Diary />}
+      {isStatisticsOpen && <Statistics />}
 
       <Modal
         classNames={{ wrapper: css.modalWrapper, content: css.modalContent }}

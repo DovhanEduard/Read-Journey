@@ -65,7 +65,7 @@ const AddBookForm = () => {
         showModal();
       })
       .catch(() => {
-        toast.error('Book successfully added!');
+        toast.error('Book was added!');
       });
   };
 

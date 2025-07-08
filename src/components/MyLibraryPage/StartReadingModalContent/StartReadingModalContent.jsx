@@ -1,17 +1,21 @@
-import css from './StartReadingModalContent.module.css';
 import { useDispatch } from 'react-redux';
-import { addStartReadingPointToBook } from '../../../redux/book/operations';
-import toast from 'react-hot-toast';
+import css from './StartReadingModalContent.module.css';
+import { useNavigate } from 'react-router-dom';
+import { getBookById } from '../../../redux/book/operations';
 
 const StartReadingModalContent = ({ book, setIsModalOpen }) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const onAddBook = () => {
-    dispatch(addStartReadingPointToBook({ id: book._id }))
+  const onStartReading = () => {
+    dispatch(getBookById(book._id))
       .unwrap()
       .then(() => {
         setIsModalOpen(false);
-        toast.success('You successfully started reading!');
+        navigate('/reading', { state: { bookId: book._id } });
+      })
+      .catch(error => {
+        console.log(error);
       });
   };
 
@@ -25,7 +29,7 @@ const StartReadingModalContent = ({ book, setIsModalOpen }) => {
         <p className={css.pages}>{book.totalPages} pages</p>
       </div>
 
-      <button className={css.addBtn} type="button" onClick={onAddBook}>
+      <button className={css.addBtn} type="button" onClick={onStartReading}>
         Start reading
       </button>
     </div>

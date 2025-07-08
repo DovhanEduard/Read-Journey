@@ -1,7 +1,11 @@
+import { useDispatch } from 'react-redux';
 import css from './AddReading.module.css';
 import { useForm } from 'react-hook-form';
+import { addStartReadingPointToBook } from '../../../redux/book/operations';
 
-const AddReading = () => {
+const AddReading = ({ book }) => {
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -9,10 +13,12 @@ const AddReading = () => {
   } = useForm({});
 
   const onSubmit = data => {
+    dispatch(addStartReadingPointToBook({ id: book._id }))
+      .unwrap()
+      .then(() => {})
+      .catch(() => {});
     console.log(data);
   };
-
-  //   console.log(watch('name'));
 
   return (
     <>

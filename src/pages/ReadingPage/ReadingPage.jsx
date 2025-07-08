@@ -4,20 +4,24 @@ import AddReading from 'components/ReadingPage/AddReading/AddReading';
 import Details from 'components/ReadingPage/Details/Details';
 import MyBook from 'components/ReadingPage/MyBook/MyBook';
 import ProgressPlaceholder from 'components/ReadingPage/ProgressPlaceholder/ProgressPlaceholder';
+import { selectBook } from '../../redux/book/selectors';
+import { useSelector } from 'react-redux';
 
 const ReadingPage = () => {
+  const book = useSelector(selectBook);
+
   return (
     <section className="section">
       <div className="container">
         <div className={css.wrapper}>
           <Dashboard>
-            <AddReading />
+            <AddReading book={book} />
 
             <Details />
             {/* <ProgressPlaceholder /> */}
           </Dashboard>
 
-          <MyBook />
+          <MyBook book={book} />
         </div>
       </div>
     </section>
