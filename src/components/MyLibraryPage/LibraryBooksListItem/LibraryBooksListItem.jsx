@@ -6,13 +6,21 @@ import { FaRegTrashAlt } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { deleteUserBook } from '../../../redux/book/operations';
 import StartReadingModalContent from '../StartReadingModalContent/StartReadingModalContent';
+import toast from 'react-hot-toast';
 
 const LibraryBooksListItem = ({ book }) => {
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const deleteBook = () => {
-    dispatch(deleteUserBook(book._id));
+    dispatch(deleteUserBook(book._id))
+      .unwrap()
+      .then(() => {
+        toast.success('The book has been deleted!');
+      })
+      .catch(() => {
+        toast.error('Some error occurred! Please try later.');
+      });
   };
 
   const showModal = () => {

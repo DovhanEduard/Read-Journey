@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import css from './StartReadingModalContent.module.css';
 import { useNavigate } from 'react-router-dom';
 import { getBookById } from '../../../redux/book/operations';
+import toast from 'react-hot-toast';
 
 const StartReadingModalContent = ({ book, setIsModalOpen }) => {
   const navigate = useNavigate();
@@ -14,8 +15,8 @@ const StartReadingModalContent = ({ book, setIsModalOpen }) => {
         setIsModalOpen(false);
         navigate('/reading', { state: { bookId: book._id } });
       })
-      .catch(error => {
-        console.log(error);
+      .catch(() => {
+        toast.error('Some error occurred! Please try later.');
       });
   };
 

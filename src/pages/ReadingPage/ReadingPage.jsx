@@ -9,6 +9,10 @@ import { useSelector } from 'react-redux';
 
 const ReadingPage = () => {
   const book = useSelector(selectBook);
+  const isBookInProgressReading = book?.progress.length > 0;
+  console.log(isBookInProgressReading);
+
+  console.log(book);
 
   return (
     <section className="section">
@@ -17,8 +21,7 @@ const ReadingPage = () => {
           <Dashboard>
             <AddReading book={book} />
 
-            <Details />
-            {/* <ProgressPlaceholder /> */}
+            {isBookInProgressReading ? <Details /> : <ProgressPlaceholder />}
           </Dashboard>
 
           <MyBook book={book} />

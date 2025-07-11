@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { Modal } from 'antd';
 import { IoClose } from 'react-icons/io5';
 import BookIsReadModalContent from '../BookIsReadModalContent/BookIsReadModalContent';
+import clsx from 'clsx';
 
 const Details = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -39,11 +40,13 @@ const Details = () => {
         <h2 className={css.title}>{isDiaryOpen ? 'Diary' : 'Statistics'}</h2>
         <div className={css.btnWrapper}>
           <button className={css.diaryBtn} type="button" onClick={onDiaryOpen}>
-            <FaRegHourglass className={css.hourGlassIcon} />
+            <FaRegHourglass
+              className={clsx(css.hourGlassIcon, isDiaryOpen && css.disabled)}
+            />
           </button>
           <button className={css.statisticsBtn} type="button">
             <AiOutlinePieChart
-              className={css.chartIcon}
+              className={clsx(css.chartIcon, isStatisticsOpen && css.disabled)}
               onClick={onStatisticsOpen}
             />
           </button>

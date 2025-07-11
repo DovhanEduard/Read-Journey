@@ -70,6 +70,14 @@
   background-color: #e90516;
 }
 
+.stopIcon {
+  width: 15px;
+  height: 15px;
+  color: transparent;
+  border-radius: 3px;
+  background-color: #e90516;
+}
+
 @media only screen and (min-width: 768px) {
   .myBookWrapper {
     min-width: none;
@@ -114,6 +122,10 @@
   .startIcon {
     width: 40px;
     height: 40px;
+  }
+  .stopIcon {
+    width: 20px;
+    height: 20px;
   }
 }
 
