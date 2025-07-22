@@ -1,25 +1,11 @@
 import css from './MyBook.module.css';
 import { FaRegCircle, FaSquare } from 'react-icons/fa';
-import { useState } from 'react';
 
 const MyBook = ({ book }) => {
-  const [isStartedReading, setIsStartedReading] = useState(() => {
-    const bookProgressElements = book.progress.length;
+  const isReadingActive =
+    book.progress[book.progress.length - 1].status === 'active';
 
-    if (
-      typeof bookProgressElements !== 'number' ||
-      bookProgressElements === 0 ||
-      isNaN(bookProgressElements)
-    ) {
-      return false;
-    }
-
-    return !(bookProgressElements % 2 === 0);
-  });
-
-  const handleStartStopBtn = () => {
-    setIsStartedReading(!isStartedReading);
-  };
+  const handleStartStopBtn = () => {};
 
   return (
     <div className={css.myBookWrapper}>
@@ -38,7 +24,7 @@ const MyBook = ({ book }) => {
           type="button"
           onClick={handleStartStopBtn}
         >
-          {isStartedReading ? (
+          {isReadingActive ? (
             <FaSquare className={css.stopIcon} />
           ) : (
             <FaRegCircle className={css.startIcon} />

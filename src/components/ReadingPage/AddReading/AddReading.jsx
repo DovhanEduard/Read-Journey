@@ -1,10 +1,18 @@
 import { useDispatch } from 'react-redux';
 import css from './AddReading.module.css';
 import { useForm } from 'react-hook-form';
-import { addStartReadingPointToBook } from '../../../redux/book/operations';
+import {
+  addFinishReadingPointToBook,
+  addStartReadingPointToBook,
+} from '../../../redux/book/operations';
 
 const AddReading = ({ book }) => {
   const dispatch = useDispatch();
+  console.log(book);
+  const isReadingActive =
+    book.progress[book.progress.length - 1].status === 'active';
+
+  console.log('last elem', isReadingActive);
 
   const {
     register,
@@ -13,11 +21,18 @@ const AddReading = ({ book }) => {
   } = useForm({});
 
   const onSubmit = data => {
-    dispatch(addStartReadingPointToBook({ id: book._id }))
-      .unwrap()
-      .then(() => {})
-      .catch(() => {});
-    console.log(data);
+    const page = Number(data.pageNumber);
+    if (isReadingActive) {
+      dispatch(addFinishReadingPointToBook({ id: book._id, page }))
+        .unwrap()
+        .then(() => {})
+        .catch(() => {});
+    } else {
+      dispatch(addStartReadingPointToBook({ id: book._id, page }))
+        .unwrap()
+        .then(() => {})
+        .catch(() => {});
+    }
   };
 
   return (
@@ -39,7 +54,7 @@ const AddReading = ({ book }) => {
 
         <div className={css.submitBtnWrapper}>
           <button className={css.filterFormBtn} type="submit">
-            To start
+            {isReadingActive ? 'To stop' : 'To start'}
           </button>
         </div>
       </form>

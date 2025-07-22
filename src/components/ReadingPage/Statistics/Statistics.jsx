@@ -1,24 +1,31 @@
 import css from './Statistics.module.css';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import { FaSquare } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
+import { selectBook } from '../../../redux/book/selectors';
+import { getFinishedPage } from '../../../utils/getFinishedPage';
 
 const Statistics = () => {
-  const percentage = 66;
+  const book = useSelector(selectBook);
+  const finishedPage = getFinishedPage(book.progress);
+  const totalPages = book.totalPages;
+
+  const percentage = (finishedPage / totalPages).toFixed(2) * 100;
   return (
     <div className={css.statisticsWrapper}>
       <div className={css.progressbarWrapper}>
         <CircularProgressbar
           className={css.progressBar}
           value={percentage}
-          text={`${percentage}%`}
+          text="100%"
         />
       </div>
 
       <p className={css.percentage}>
         <FaSquare className={css.square} />
-        19.14%
+        {percentage}%
       </p>
-      <p className={css.readPages}>171 pages read</p>
+      <p className={css.readPages}>{finishedPage} pages read</p>
     </div>
   );
 };

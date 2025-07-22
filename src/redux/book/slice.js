@@ -107,6 +107,8 @@ export const bookSlice = createSlice({
         state.isLoading = false;
         state.error = null;
 
+        state.book = action.payload;
+
         state.userBooks = state.userBooks.map(book => {
           if (book._id === action.payload._id) {
             return action.payload;
@@ -126,6 +128,7 @@ export const bookSlice = createSlice({
       .addCase(addFinishReadingPointToBook.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
+        state.book = action.payload;
 
         state.userBooks = state.userBooks.map(book => {
           if (book._id === action.payload._id) {
