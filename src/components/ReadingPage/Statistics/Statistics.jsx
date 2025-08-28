@@ -10,7 +10,7 @@ const Statistics = () => {
   const finishedPage = getFinishedPage(book.progress);
   const totalPages = book.totalPages;
 
-  const percentage = (finishedPage / totalPages).toFixed(2) * 100;
+  const percentage = (finishedPage / totalPages) * 100;
   return (
     <div className={css.statisticsWrapper}>
       <div className={css.progressbarWrapper}>
@@ -23,7 +23,7 @@ const Statistics = () => {
 
       <p className={css.percentage}>
         <FaSquare className={css.square} />
-        {percentage}%
+        {percentage.toFixed(2)}%
       </p>
       <p className={css.readPages}>{finishedPage} pages read</p>
     </div>

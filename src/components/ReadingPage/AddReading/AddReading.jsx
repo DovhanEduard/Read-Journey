@@ -8,11 +8,8 @@ import {
 
 const AddReading = ({ book }) => {
   const dispatch = useDispatch();
-  console.log(book);
   const isReadingActive =
     book.progress[book.progress.length - 1].status === 'active';
-
-  console.log('last elem', isReadingActive);
 
   const {
     register,

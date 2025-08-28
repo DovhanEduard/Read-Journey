@@ -146,9 +146,12 @@ export const bookSlice = createSlice({
       .addCase(deleteReadingBook.pending, state => {
         state.isLoading = true;
       })
-      .addCase(deleteReadingBook.fulfilled, state => {
+      .addCase(deleteReadingBook.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
+        state.book.progress.filter;
+
+        state.book = action.payload;
       })
       .addCase(deleteReadingBook.rejected, (state, action) => {
         state.isLoading = false;

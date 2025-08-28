@@ -41,12 +41,12 @@ const Details = () => {
         <div className={css.btnWrapper}>
           <button className={css.diaryBtn} type="button" onClick={onDiaryOpen}>
             <FaRegHourglass
-              className={clsx(css.hourGlassIcon, isDiaryOpen && css.disabled)}
+              className={clsx(css.hourGlassIcon, !isDiaryOpen && css.disabled)}
             />
           </button>
           <button className={css.statisticsBtn} type="button">
             <AiOutlinePieChart
-              className={clsx(css.chartIcon, isStatisticsOpen && css.disabled)}
+              className={clsx(css.chartIcon, !isStatisticsOpen && css.disabled)}
               onClick={onStatisticsOpen}
             />
           </button>

@@ -17,7 +17,6 @@ const LibraryRecommendedBooks = () => {
 
   const onNextPage = () => {
     setPage(page + 1);
-    console.log(123);
   };
 
   useEffect(() => {

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import css from './MobileMenu.module.css';
 import { useDispatch } from 'react-redux';
 import { logoutUser } from '../../../redux/auth/operations';
+import { Link } from 'react-router';
 
 const MobileMenu = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
@@ -27,10 +28,10 @@ const MobileMenu = ({ isOpen, onClose }) => {
         <nav className={css.nav}>
           <ul className={css.navList}>
             <li className={css.navItem}>
-              <a href="#">Home</a>
+              <Link to="/recommended">Home</Link>
             </li>
             <li className={css.navItem}>
-              <a href="#">My Library</a>
+              <Link to="/library">My library</Link>
             </li>
           </ul>
         </nav>

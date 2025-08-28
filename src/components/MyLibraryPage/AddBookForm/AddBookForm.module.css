@@ -96,6 +96,10 @@
 /* ---------tablet---------- */
 
 @media only screen and (min-width: 768px) {
+  .form {
+    margin-right: 33px;
+  }
+
   .filterFormTitile {
     font-size: 14px;
     line-height: 1.28571;
@@ -140,6 +144,9 @@
 /* ---------desktop---------- */
 
 @media only screen and (min-width: 1440px) {
+  .form {
+    margin-right: 0;
+  }
   .input {
     width: 310px;
   }

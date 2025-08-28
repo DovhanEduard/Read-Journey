@@ -18,27 +18,6 @@ function App() {
     dispatch(refreshUser());
   }, []);
 
-  // dispatch(
-  //   login({
-  //     email: 'test@gmail.com',
-  //     password: '1234567',
-  //   })
-  // );
-  // 673262c15914964b4a87e734
-
-  // 6759b16a5914964b4a8b243f 681c73a35914964b4a930899
-  // setTimeout(() => {
-  //   dispatch(getBookById('6759b16a5914964b4a8b243f'));
-  // }, 2000);
-
-  // setTimeout(() => {
-  //   dispatch(
-  //     deleteUserBook({
-  //       id: '6759b16a5914964b4a8b243f',
-  //     })
-  //   );
-  // }, 4000);
-
   return (
     <>
       <Layout>
